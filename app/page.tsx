@@ -75,30 +75,34 @@ export default function Home() {
   }
 
   return (
-    <div className="px-6 flex flex-col gap-4 bg-green-400 h-50">
-      <div className="flex justify-between items-center mt-12 mb-5">
-        <p className="text-3xl">TODO</p>
-        <div>Dark Mode</div>
+    <div className="flex flex-col">
+      <div className="px-6 pb-10 bg-green-500">
+        <div className="flex justify-between items-center mt-12 mb-5 ">
+          <p className="text-3xl">TODO</p>
+          <div>Dark Mode</div>
+        </div>
+        <form className="flex gap-3 px-4 py-5 bg-red-400 rounded-sm" onSubmit={addTodoHandler}>
+          <button className="w-5 h-5 rounded-full bg-amber-600 flex justify-center items-center"><Image src="/icon-check.svg" alt="check" width='12' height='12'/></button>
+          <input ref={inputRef} type="text" placeholder="Create a new todo..."/>
+        </form>
       </div>
-      <form className="flex gap-3 px-4 py-5 bg-red-400 rounded-sm" onSubmit={addTodoHandler}>
-        <button className="w-5 h-5 rounded-full bg-amber-600 flex justify-center items-center"><Image src="/icon-check.svg" alt="check" width='12' height='12'/></button>
-        <input ref={inputRef} type="text" placeholder="Create a new todo..."/>
-      </form>
-      <ul className="rounded-sm bg-red-500 divide-y">
-        {filteredTodos.map(todo => {
-          return (
-            <li className="flex gap-3 px-4 py-5 text-3" key={todo.id}>
-              <button className="w-5 h-5 rounded-full bg-amber-600 flex justify-center items-center"><Image onClick={() => completeTodoHandler(todo.id)} src="/icon-check.svg" alt="check" width='12' height='12'/></button>
-              <p className="flex-1">{todo.text}</p>
-              <button><Image onClick={() => deleteTodoHandler(todo.id)} src="/icon-cross.svg" alt="delete" width='12' height='12'/></button>
-            </li>
-          )
-        })}
-      </ul>
-      <div className="bg-red-400 px-4 py-5 rounded-sm flex gap-4 justify-center">
-        <button onClick={() => setIsShowing('all')}>All</button>
-        <button onClick={() => setIsShowing('active')}>Active</button>
-        <button onClick={() => setIsShowing('completed')}>Completed</button>
+      <div className="-mt-6 px-6 flex flex-col gap-4">
+        <ul className="rounded-sm bg-red-500 divide-y">
+          {filteredTodos.map(todo => {
+            return (
+              <li className="flex gap-3 px-4 py-5 text-3" key={todo.id}>
+                <button className="w-5 h-5 rounded-full bg-amber-600 flex justify-center items-center"><Image onClick={() => completeTodoHandler(todo.id)} src="/icon-check.svg" alt="check" width='12' height='12'/></button>
+                <p className="flex-1">{todo.text}</p>
+                <button><Image onClick={() => deleteTodoHandler(todo.id)} src="/icon-cross.svg" alt="delete" width='12' height='12'/></button>
+              </li>
+            )
+          })}
+        </ul>
+        <div className="bg-red-400 px-4 py-5 rounded-sm flex gap-4 justify-center">
+          <button onClick={() => setIsShowing('all')}>All</button>
+          <button onClick={() => setIsShowing('active')}>Active</button>
+          <button onClick={() => setIsShowing('completed')}>Completed</button>
+        </div>
       </div>
     </div>
   );
