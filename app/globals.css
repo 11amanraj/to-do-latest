@@ -7,6 +7,8 @@
 
   --background: #FAFAFA;
   --foreground: #FFFFFF;
+  --text-primary: #4D4B60;
+  --text-secondary: #ABAAB0;
 }
 
 @theme inline {
@@ -23,12 +25,13 @@
 
     --background: #1a2418;
     --foreground: #25273C;
+    --text-primary: #9395AE;
+    --text-secondary: #5E6079;
   }
 }
 
 body {
   background: var(--background);
-  color: white;
-  /* color: var(--foreground); */
+  color: var(--text-primary);
   font-family: 'Josefin Sans', Helvetica, sans-serif;
 }

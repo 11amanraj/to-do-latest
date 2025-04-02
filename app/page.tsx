@@ -92,7 +92,7 @@ export default function Home() {
             return (
               <li className="flex gap-3 px-4 py-5 text-3" key={todo.id}>
                 <button className="w-5 h-5 rounded-full bg-amber-600 flex justify-center items-center"><Image onClick={() => completeTodoHandler(todo.id)} src="/icon-check.svg" alt="check" width='12' height='12'/></button>
-                <p className="flex-1 text-white">{todo.text}</p>
+                <p className="flex-1 ">{todo.text}</p>
                 <button><Image onClick={() => deleteTodoHandler(todo.id)} src="/icon-cross.svg" alt="delete" width='12' height='12'/></button>
               </li>
             )
