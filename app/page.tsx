@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface todo {
   id: string,
@@ -9,6 +9,7 @@ interface todo {
 }
 
 export default function Home() {
+  const inputRef = useRef<HTMLInputElement>(null)
   const [todos, setTodos] = useState<todo[]>([
     {
       id: Math.random().toString(),
@@ -27,16 +28,31 @@ export default function Home() {
     }
   ])
 
-  const addTodoHandler = () => {}
+  const addTodoHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if(inputRef.current) {
+      const todo = inputRef.current.value
+      setTodos(prev => [...prev, {
+        id: Math.random().toString(),
+        text: todo,
+        completed: false,
+      }])
+      inputRef.current.value = '' 
+    }
+  }
+
   const completeTodoHandler = () => {}
   const deleteTodoHandler = () => {}
 
   return (
     <div>
+      <form onSubmit={addTodoHandler}>
+        <input ref={inputRef} type="text" placeholder="Create a new todo..."/>
+      </form>
       <ul>
         {todos.map(todo => {
           return (
-            <li key={todo.id}>{todo.text}</li>
+            <li className="bg-red-500" key={todo.id}>{todo.text}</li>
           )
         })}
       </ul>
