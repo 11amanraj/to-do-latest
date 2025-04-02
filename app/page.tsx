@@ -76,7 +76,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <div className="px-6 pb-10 bg-green-500">
+      <div className="px-6 pb-10 bg-[url('/bg-mobile-light.jpg')] sm:bg-[url('/bg-desktop-light.jpg')] bg-cover">
         <div className="flex justify-between items-center mt-12 mb-5 ">
           <p className="text-3xl">TODO</p>
           <div>Dark Mode</div>
