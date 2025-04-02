@@ -75,12 +75,16 @@ export default function Home() {
   }
 
   return (
-    <div className="mx-6 flex flex-col gap-4">
+    <div className="px-6 flex flex-col gap-4 bg-green-400 h-50">
+      <div className="flex justify-between items-center mt-12 mb-5">
+        <p className="text-3xl">TODO</p>
+        <div>Dark Mode</div>
+      </div>
       <form className="flex gap-3 px-4 py-5 bg-red-400 rounded-sm" onSubmit={addTodoHandler}>
         <button className="w-5 h-5 rounded-full bg-amber-600 flex justify-center items-center"><Image src="/icon-check.svg" alt="check" width='12' height='12'/></button>
         <input ref={inputRef} type="text" placeholder="Create a new todo..."/>
       </form>
-      <ul className="rounded-sm bg-red-500">
+      <ul className="rounded-sm bg-red-500 divide-y">
         {filteredTodos.map(todo => {
           return (
             <li className="flex gap-3 px-4 py-5 text-3" key={todo.id}>
