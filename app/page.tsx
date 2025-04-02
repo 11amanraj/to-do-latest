@@ -75,7 +75,7 @@ export default function Home() {
   }
 
   return (
-    <div className="mx-6">
+    <div className="mx-6 flex flex-col gap-4">
       <form onSubmit={addTodoHandler}>
         <input ref={inputRef} type="text" placeholder="Create a new todo..."/>
       </form>
@@ -90,7 +90,7 @@ export default function Home() {
           )
         })}
       </ul>
-      <div className="filter">
+      <div className="bg-red-400 px-4 py-5 flex gap-4 justify-center">
         <button onClick={() => setIsShowing('all')}>All</button>
         <button onClick={() => setIsShowing('active')}>Active</button>
         <button onClick={() => setIsShowing('completed')}>Completed</button>
