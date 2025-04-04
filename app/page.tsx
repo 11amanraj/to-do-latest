@@ -78,7 +78,7 @@ export default function Home() {
     <div className="flex flex-col">
       <div className="px-6 pb-10 flex flex-col dark:bg-[url('/bg-mobile-dark.jpg')] bg-[url('/bg-mobile-light.jpg')] sm:bg-[url('/bg-desktop-light.jpg')] sm:dark:bg-[url('/bg-desktop-dark.jpg')] bg-cover">
         <div className="sm:w-150 md:w-180 lg:w-240 sm:self-center flex justify-between items-center mt-12 mb-5 ">
-          <p className="text-3xl">TODO</p>
+          <p className="text-3xl md:text-5xl">TODO</p>
           <div>Dark Mode</div>
         </div>
         <form className="sm:w-150 md:w-180 lg:w-240 sm:self-center flex gap-3 px-4 py-5 bg-foreground rounded-sm" onSubmit={addTodoHandler}>
