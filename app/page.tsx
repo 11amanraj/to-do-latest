@@ -82,8 +82,7 @@ export default function Home() {
           <div>Dark Mode</div>
         </div>
         <form className="sm:w-150 md:w-180 lg:w-240 sm:self-center flex gap-3 px-4 py-5 bg-foreground rounded-sm" onSubmit={addTodoHandler}>
-          <button className="w-5 h-5 rounded-full bg-amber-600 flex justify-center items-center"><Image src="/icon-check.svg" alt="check" width='12' height='12'/></button>
-          <input ref={inputRef} type="text" placeholder="Create a new todo..."/>
+        <button className="w-5 h-5 rounded-full border-[1px] border-primary border-opacity-50 flex justify-center items-center"></button>          <input ref={inputRef} type="text" placeholder="Create a new todo..."/>
         </form>
       </div>
       <div className="-mt-6 px-6 sm:px-0 flex flex-col gap-4 sm:w-150 md:w-180 lg:w-240 sm:self-center">
@@ -91,7 +90,10 @@ export default function Home() {
           {filteredTodos.map(todo => {
             return (
               <li className="flex gap-3 px-4 py-5 text-3" key={todo.id}>
-                <button className="w-5 h-5 rounded-full bg-amber-600 flex justify-center items-center"><Image onClick={() => completeTodoHandler(todo.id)} src="/icon-check.svg" alt="check" width='12' height='12'/></button>
+                {todo.completed 
+                  ? <button onClick={() => completeTodoHandler(todo.id)} className="w-5 h-5 rounded-full bg-green-500 flex justify-center items-center"><Image src="/icon-check.svg" alt="check" width='12' height='12'/></button>
+                  : <button onClick={() => completeTodoHandler(todo.id)} className="w-5 h-5 rounded-full border-[1px] border-primary border-opacity-50 flex justify-center items-center"></button>
+                }
                 <p className="flex-1 ">{todo.text}</p>
                 <button><Image onClick={() => deleteTodoHandler(todo.id)} src="/icon-cross.svg" alt="delete" width='12' height='12'/></button>
               </li>
