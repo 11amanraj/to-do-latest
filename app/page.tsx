@@ -13,23 +13,7 @@ type FilterOptions = "all" | "active" | "completed";
 
 export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [todos, setTodos] = useState<todo[]>([
-    {
-      id: Math.random().toString(),
-      text: 'First Todo',
-      completed: false
-    },
-    {
-      id: Math.random().toString(),
-      text: 'Second Todo',
-      completed: true
-    },
-    {
-      id: Math.random().toString(),
-      text: 'Third Todo',
-      completed: false
-    }
-  ])
+  const [todos, setTodos] = useState<todo[]>([])
   const [isShowing, setIsShowing] = useState<FilterOptions>('all')
   const [filteredTodos, setFilteredTodos] = useState<todo[]>([])
 
